@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detección de Dispositivo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            body {
+                background-color: red;
+                color: white;
+            }
+        }
+
+        /* Estilos para PC */
+        @media screen and (min-width: 769px) {
+            body {
+                background-color: blue;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // JavaScript para mostrar información sobre el dispositivo
+        function detectDevice() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const deviceInfo = isMobile ? "Dispositivo móvil" : "PC";
+            
+            const deviceElement = document.createElement("p");
+            deviceElement.textContent = "Estás visitando desde un " + deviceInfo;
+            document.body.appendChild(deviceElement);
+        }
+
+        detectDevice();
+    </script>
+</body>
+</html>
